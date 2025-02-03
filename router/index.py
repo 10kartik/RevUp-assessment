@@ -22,7 +22,7 @@ API_KEY = os.getenv("FIREWORKS_API_KEY")
 llm = Fireworks(model="accounts/fireworks/models/deepseek-v3",
                 api_key=API_KEY,
                 temperature=0.4,  # Adjust temperature
-                max_tokens=1000,   # Adjust max tokens
+                max_tokens=16000,   # Adjust max tokens
                 top_k=30,         # Adjust top_k
                 top_p=1)         # Adjust top_p
 
@@ -50,6 +50,7 @@ async def chat_endpoint(request: ChatRequest):
         sentiment_response = sentiment_analyzer.generate(request.user_query, history)
         logger.info(f"Sentiment response: {sentiment_response}")
         print(f"Sentiment response: {sentiment_response}")
+        sentiment_response = sentiment_response.upper().strip()
         
         # Step 3: Route to appropriate agent
         if "task_planning" in intent:
@@ -64,6 +65,8 @@ async def chat_endpoint(request: ChatRequest):
             print("No specific agent matched, using general response")
             primary_response = "I'll need more information to help with that."
             agent_used = "general"
+
+        primary_response = primary_response.strip()
 
         # Step 4: Combine responses
         combined_response = f"""Sentiment: {sentiment_response}. Response: {primary_response}""".strip()
