@@ -19,14 +19,12 @@ from dotenv import load_dotenv
 load_dotenv()
 API_KEY = os.getenv("FIREWORKS_API_KEY")
 # Initialize components
-llm = Fireworks(model="accounts/fireworks/models/llama-v3p1-8b-instruct",
+llm = Fireworks(model="accounts/fireworks/models/deepseek-v3",
                 api_key=API_KEY,
                 temperature=0.4,  # Adjust temperature
-                max_tokens=10000,   # Adjust max tokens
+                max_tokens=1000,   # Adjust max tokens
                 top_k=30,         # Adjust top_k
-                top_p=1,        # Adjust top_p
-                frequency_penalty=0.5,  # Adjust frequency penalty
-                presence_penalty=0.2)
+                top_p=1)         # Adjust top_p
 
 session_manager = SessionManager()
 
@@ -46,9 +44,12 @@ async def chat_endpoint(request: ChatRequest):
         # Step 1: Intent classification
         intent = intent_classifier.generate(request.user_query, history)
         logger.info(f"Classified intent: {intent}")
+        print(f"Classified intent: {intent}")
 
         # Step 2: Always run sentiment analysis
         sentiment_response = sentiment_analyzer.generate(request.user_query, history)
+        logger.info(f"Sentiment response: {sentiment_response}")
+        print(f"Sentiment response: {sentiment_response}")
         
         # Step 3: Route to appropriate agent
         if "task_planning" in intent:
@@ -65,10 +66,7 @@ async def chat_endpoint(request: ChatRequest):
             agent_used = "general"
 
         # Step 4: Combine responses
-        combined_response = f"""
-                            Sentiment: {sentiment_response}
-                            Response: {primary_response}
-                            """
+        combined_response = f"""Sentiment: {sentiment_response}. Response: {primary_response}""".strip()
         
         logger.info(f"Combined response: {combined_response[:100]}...")
 

@@ -11,6 +11,7 @@ class SentimentAnalysisAgent(BaseAgent):
             llm=llm,
             prompt=PromptTemplate.from_template(
                 """You are an AI assistant specialized in Analysing the sentiments of the user based on the provided query. Classify the sentiment as 'positive', 'negative', or 'neutral'.
+                Only classify the sentiment of the query among the three categories and do not provide any additional information.
                 Query: {query}
                 Response:"""
             )
