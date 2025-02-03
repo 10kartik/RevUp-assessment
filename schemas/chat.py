@@ -5,6 +5,7 @@ class ChatRequest(BaseModel):
     session_id: str = "default"
 
 class ChatResponse(BaseModel):
+    sentiment: str = "NEUTRAL"
     response: str
     session_id: str
-    agent_used: str
+    agent_used: list[str] = []

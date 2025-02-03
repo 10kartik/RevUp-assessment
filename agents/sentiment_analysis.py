@@ -17,7 +17,7 @@ class SentimentAnalysisAgent(BaseAgent):
             )
         )
     
-    def generate(self, query: str, history: List[Dict]) -> str:
+    def generate(self, query: str) -> str:
         print(f"Analyzing sentiment for query: {query}")
         response = self.chain.run(query=query)
         logger.info(f"Sentiment response: {response}")

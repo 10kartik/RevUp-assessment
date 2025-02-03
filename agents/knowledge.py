@@ -11,7 +11,7 @@ class KnowledgeAgent(BaseAgent):
             llm=llm,
             prompt=PromptTemplate.from_template(
                 """You are an AI assistant specialized in Answering the factual question and have access to a vast amount of General knowledge.
-                Use previous messages in the conversation to provide coherent responses. Previous conversation: {history}. {history}
+                Use previous messages in the conversation to provide coherent responses. Previous conversation: {history}.
                 Always prioritize answering the question in the most recent message and do not rely on previous context unless explicitly referenced.
                 (most recent) Question: {query}
                 Provide a concise, accurate, and relevant answer. Do not provide unnecessary information and avoid overly complex or verbose responses.
