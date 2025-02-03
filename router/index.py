@@ -49,13 +49,14 @@ async def chat_endpoint(request: ChatRequest):
         logger.info(f"Classified intent: {agents_to_prompt}")
         print(f"Classified intent: {agents_to_prompt}")
 
+        agent_used = []
         # Step 2: Always run sentiment analysis
         sentiment_response = sentiment_analyzer.generate(request.user_query)
         sentiment_response = sentiment_response.upper().strip()
         logger.info(f"Sentiment response: {sentiment_response}")
         print(f"Sentiment response: {sentiment_response}")
+        agent_used.append("sentiment_analysis")
         
-        agent_used = []
         # Step 3: Route to appropriate agents
         # Iterate over the agents_to_prompt and generate responses
         primary_response = ""
