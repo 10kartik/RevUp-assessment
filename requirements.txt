@@ -1,0 +1,9 @@
+python-dotenv
+pydantic
+pytest
+fastapi
+uvicorn
+langchain
+langchain-community
+langchain-fireworks
+fireworks-ai
