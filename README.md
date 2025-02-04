@@ -65,3 +65,17 @@ uvicorn server:app --host 127.0.0.1 --port 8000
 - <b>LangChain:</b> A library that provides a simple interface to initialize agents and interact with them.
 - <b>Pydantic:</b> Data validation and settings management using Python type annotations.
 - <b>Uvicorn:</b> A lightning-fast ASGI server implementation, using uvloop and httptools.
+
+### Screenshots
+
+##### Sentiment Agent and Knowledge Agent:
+
+![](./docs/ss1.png)
+
+##### Sentiment Agent and TaskPlanning Agent:
+
+![](./docs/ss2.png)
+
+##### Multi-Agent Query, Sentiment Agent, Knowledge Agent, TaskPlanning Agent and Summarization Agent:
+
+![](./docs/ss3.png)
