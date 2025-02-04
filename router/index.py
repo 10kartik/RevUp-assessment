@@ -105,7 +105,7 @@ async def chat_endpoint(request: ChatRequest):
         print(f"Error occurred: {e}")
         raise HTTPException(status_code=500, detail=str(e))
     
-@router.get("/reset")
+@router.post("/reset")
 async def reset_endpoint():
     session_manager.sessions = {}
     return {"message": "Session history reset successfully."}
