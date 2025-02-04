@@ -1,10 +1,12 @@
+![Visits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/10kartik/RevUp-assessment)
+
 # RevUp-assessment
 
 An API that facilitates a multi-agent conversational system to assist users in managing tasks, answering general questions, analyzing sentiments, and summarizing the conversation.
 
-•Make sure to checkout [Problem Statement and Documentation](./docs/RevUp%20-%20Problem%20Statement.pdf).
+•<b>Make sure to checkout</b> [Problem Statement and Documentation](./docs/RevUp%20-%20Problem%20Statement.pdf).
 
-•Also, Watch my project in action (use 1.5x speed): [Presentation Video](https://www.loom.com/share/2efdd22beaf94568abcbd39ddedeaedc).
+•<b>Watch my implementation in action (use 1.5x speed):</b> [Presentation Video](https://www.loom.com/share/2efdd22beaf94568abcbd39ddedeaedc).
 
 ## Installation
 
