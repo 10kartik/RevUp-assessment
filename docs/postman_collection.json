@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "10cb320e-71cf-4d23-bf2d-f7eb1f17c86e",
+		"name": "RevUp Assessment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38513274"
+	},
+	"item": [
+		{
+			"name": "Chat",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_query\": \"Which country won the 2014 Fifa world cup?\",\n    \"session_id\": \"session_12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/chat",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"chat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/health",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reset Conversation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/reset",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"reset"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
