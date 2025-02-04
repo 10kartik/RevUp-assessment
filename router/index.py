@@ -82,17 +82,17 @@ async def chat_endpoint(request: ChatRequest):
         for agent in agents_to_prompt:
             if "task_planning" == agent:
                 print("Routing to Task Planner agent")
-                logger.info("Routing to Task Planner agent")
+                logger.info(f"Routing to *Task Planner* agent with query: {request.user_query}")
                 primary_response += task_planner.generate(agents_to_prompt["task_planning"], history)
                 agent_used.append("task_planner")
             elif "knowledge" == agent:
                 print("Routing to Knowledge agent")
-                logger.info("Routing to Knowledge agent")
+                logger.info(f"Routing to *Knowledge agent* with query: {request.user_query}")
                 primary_response += knowledge_agent.generate(agents_to_prompt["knowledge"], history)
                 agent_used.append("knowledge")
             elif "summarization" == agent:
                 print("Routing to Summarization agent")
-                logger.info("Routing to Summarization agent")
+                logger.info(f"Routing to *Summarization agent* with history length: {history}")
                 primary_response += summarization_agent.generate(history)
                 agent_used.append("summarization")
             else:
